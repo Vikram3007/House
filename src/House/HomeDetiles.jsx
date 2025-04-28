@@ -3,7 +3,8 @@ import { FaHandshake, FaRupeeSign, FaHotel, FaFileAlt, FaHome } from "react-icon
 import { IoIosPeople } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
 import { IoMdLocate } from "react-icons/io";
-import House from '../assets/house1.jpg';
+import CountUp from 'react-countup';
+import House from '../assets/house1.jpg';  // Make sure the path is correct
 import HomeDetiles2 from './HomeDetiles2';
 
 const HomeDetails = () => {
@@ -38,19 +39,27 @@ const HomeDetails = () => {
   const experiences = [
     {
       icon: <IoIosPeople />,
-      title: '10+ Years Experience',
+      count: 10,
+      suffix: '+',
+      title: 'Years Experience',
     },
     {
       icon: <FaHandshake />,
-      title: '2500+ Happy Clients',
+      count: 2500,
+      suffix: '+',
+      title: ' Happy Clients',
     },
     {
       icon: <FaLocationDot />,
-      title: '100+ Locations',
+      count: 100,
+      suffix: '+',
+      title: ' Locations',
     },
     {
       icon: <FaHotel />,
-      title: '350+ Projects',
+      count: 350,
+      suffix: '+',
+      title: ' Projects',
     },
   ];
 
@@ -58,7 +67,7 @@ const HomeDetails = () => {
 
   const properties = [
     {
-      bgImg: "img1.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "2 BHK",
       status: "Ready to Move",
       title: "2 BHK RESALE APARTMENT",
@@ -68,7 +77,7 @@ const HomeDetails = () => {
       category: 'highlighted',
     },
     {
-      bgImg: "img2.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "3 BHK",
       status: "Ready to Move",
       title: "Brigade Residences at WTC",
@@ -78,7 +87,7 @@ const HomeDetails = () => {
       category: 'highlighted',
     },
     {
-      bgImg: "img3.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "1 BHK",
       status: "Ready to Move",
       title: "Ottiambakkam 3BHK Resale Villa",
@@ -88,7 +97,7 @@ const HomeDetails = () => {
       category: 'highlighted',
     },
     {
-      bgImg: "img4.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "2 BHK",
       status: "Ready to Move",
       title: "Sobha Gardenia 2bhk Resale Villa",
@@ -98,7 +107,7 @@ const HomeDetails = () => {
       category: 'highlighted',
     },
     {
-      bgImg: "img5.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "3 BHK",
       status: "Ready to Move",
       title: "Prestige Silver Springs 2BHK RESALE VILLA",
@@ -108,7 +117,7 @@ const HomeDetails = () => {
       category: 'highlighted',
     },
     {
-      bgImg: "img6.jpg",
+      bgImg: House,  // Use actual image imported from assets
       type: "2 BHK",
       status: "Ready to Move",
       title: "DRA D'ELITE 3.5 BHK Apartment",
@@ -162,7 +171,11 @@ const HomeDetails = () => {
             <div className="text-green-500 text-4xl mb-2">
               {experience.icon}
             </div>
+            <h1 className="flex gap-1 text-xl font-semibold text-black">
+              <CountUp end={experience.count} duration={2} />{experience.suffix}
+            
             <h1 className="text-xl font-semibold">{experience.title}</h1>
+            </h1>
           </div>
         ))}
       </div>
@@ -212,26 +225,15 @@ const HomeDetails = () => {
               <div className="flex items-center gap-4 text-sm">
                 <FaHome className='text-blue-800' />
                 <p className='font-extrabold'>{item.house}</p>
-                <p className='font-medium'>{item.area}</p>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <IoMdLocate className='text-red-400 font-extrabold' />
-                <p>{item.location}</p>
+                <IoMdLocate className='text-blue-800' />
+                <p className='text-gray-600'>{item.location}</p>
+                <p className='font-extrabold'>{item.area}</p>
               </div>
             </div>
           </div>
         ))}
       </div>
-
-      {/* CTA Button */}
-      <div className="flex justify-center mt-10">
-        <a href="#" className="bg-blue-600 text-white px-8 py-3 rounded-xl font-medium text-center hover:bg-blue-700 transition">
-          View More
-        </a>
-      </div>
-
-      {/* Additional Details */}
-      <HomeDetiles2 />
+      <HomeDetiles2/>
     </>
   );
 };

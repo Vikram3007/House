@@ -34,10 +34,10 @@ export const HomeDetiles4 = () => {
     return (
         <>
             <div className="bg-amber-300  py-12 px-20 mt-10 m-10 rounded-2xl shadow-md">
-                <div className="flex flex-col mr-10  md:flex-row items-center justify-between gap-2">
+                <div className="flex flex-row mr-10  md:flex-row items-center justify-between gap-2">
                     <div className="text-left">
-                        <h1 className="text-3xl font-bold mb-2">Find Your Dream Property!</h1>
-                        <p className="text-lg">We are offering the best real estate properties for everyone.</p>
+                        <h1 className="md:text-3xl font-bold mb-2 text-2xl md:font-bold md:mb-2">Find Your Dream Property!</h1>
+                        <p className="md:text-lg ">We are offering the best real estate properties for everyone.</p>
                     </div>
                     <button className="bg-black text-white px-6 mt-10 py-2 rounded-full hover:bg-gray-800 transition">
                         Contact Now
