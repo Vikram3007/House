@@ -1,16 +1,15 @@
 import React from 'react';
 import aboutImg from '../assets/aboutimg1.webp';
 import aboutImg2 from '../assets/aboutimg2.webp';
-import aboutImg4 from '../assets/aboutimge4.webp'
+import aboutImg4 from '../assets/aboutimge4.webp';
 import { CheckCircleIcon } from '@heroicons/react/24/solid';
-import HomeDetiles5 from './HomeDetiles5'
+import HomeDetiles5 from './HomeDetiles5';
 
 const AboutDetails = () => {
     return (
         <>
             {/* About Us Section */}
-            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6">
-                {/* Text */}
+            <div className="max-w-screen-xl mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6">
                 <div className="md:w-1/2 w-full">
                     <h2 className="text-2xl font-bold mb-4">About Us</h2>
                     <p className="mb-4">
@@ -21,7 +20,6 @@ const AboutDetails = () => {
                     </p>
                 </div>
 
-                {/* Image */}
                 <div className="md:w-1/2 w-full relative">
                     <img
                         src={aboutImg}
@@ -32,8 +30,7 @@ const AboutDetails = () => {
             </div>
 
             {/* Our Strength Section */}
-            <div className="p-6 bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6 mt-10">
-                {/* Image */}
+            <div className="max-w-screen-xl mx-auto p-6 bg-white rounded-lg shadow-md flex flex-col md:flex-row items-center gap-6 mt-10">
                 <div className="md:w-1/2 w-full">
                     <img
                         src={aboutImg2}
@@ -42,7 +39,6 @@ const AboutDetails = () => {
                     />
                 </div>
 
-                {/* Text */}
                 <div className="md:w-1/2 w-full">
                     <h2 className="text-2xl font-bold mb-4">Our Strength</h2>
                     <p className="mb-4">
@@ -69,26 +65,24 @@ const AboutDetails = () => {
             </div>
 
             {/* Mission, Vision, Values Section */}
-            <div className="p-6 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row gap-6 items-center">
-
-                {/* Text Content */}
+            <div className="max-w-screen-xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row gap-6 items-center">
                 <div className="md:w-1/2 w-full">
                     <div className="mb-6">
-                        <h2 className="text-2xl font-bold mb-2 ml-30">Our Mission</h2>
+                        <h2 className="text-2xl font-bold mb-2">Our Mission</h2>
                         <p>
                             To deliver transparent, zero-brokerage real estate consulting across every Indian pincode, with local experts who understand customer needs and provide end-to-end support.
                         </p>
                     </div>
 
                     <div className="mb-6">
-                        <h2 className="text-2xl font-bold mb-2 ml-30">Our Vision</h2>
+                        <h2 className="text-2xl font-bold mb-2">Our Vision</h2>
                         <p>
                             To become the top real estate platform in India, led by 1,000+ Pincode Entrepreneurs, trusted by families, investors, and businesses in every corner of the country.
                         </p>
                     </div>
 
-                    <div className='ml-30'>
-                        <h2 className="text-2xl font-bold mb-2 ml-30">Our Values</h2>
+                    <div>
+                        <h2 className="text-2xl font-bold mb-2">Our Values</h2>
                         {[
                             "Transparency in every transaction",
                             "Local trust with national standards",
@@ -97,14 +91,13 @@ const AboutDetails = () => {
                             "Customer-first, always",
                         ].map((value, idx) => (
                             <div key={idx} className="mb-2 flex items-start gap-2">
-                                <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1 " />
+                                <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1" />
                                 <p className="font-medium">{value}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                {/* Image on the Right */}
                 <div className="md:w-1/2 w-full">
                     <img
                         src={aboutImg}
@@ -114,58 +107,47 @@ const AboutDetails = () => {
                 </div>
             </div>
 
-            {/* Mission, Vision, Values Section */}
-            <div className="p-6 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row gap-6 items-center">
-
-                {/* Image on the Left */}
+            {/* Why Choose Us Section */}
+            <div className="max-w-screen-xl mx-auto p-6 bg-white rounded-lg shadow-md mt-10 flex flex-col md:flex-row gap-6 items-center">
                 <div className="md:w-1/2 w-full">
                     <img
                         src={aboutImg4}
-                        alt="Values"
+                        alt="Why Choose Us"
                         className="w-full h-auto rounded-lg shadow-[0_10px_15px_-5px_rgba(0,0,0,0.3)]"
                     />
                 </div>
 
-                {/* Text on the Right */}
                 <div className="md:w-1/2 w-full">
-                    <div className="mb-6">
-                        <h2 className="text-2xl font-bold mb-2 p-10">Why Choose Pincode Pillars?</h2>
-                        <p className='p-3'>
-                            Whether you're buying your first home, renting an apartment, or selling an investment — Pincode Pillars simplifies your experience with real-time support and zero-hassle service. Our consultants are your personal real estate guides — not just brokers, but local experts.
-                        </p>
+                    <h2 className="text-2xl font-bold mb-4">Why Choose Pincode Pillars?</h2>
 
-                        <p className='p-3'>
-                            We’re building a system where you never need to pay a middleman or get stuck with outdated property data again. You’ll always have a verified listing, a transparent process, and a local advisor who’s just a call away.
+                    <p className="mb-3">
+                        Whether you're buying your first home, renting an apartment, or selling an investment — Pincode Pillars simplifies your experience with real-time support and zero-hassle service. Our consultants are your personal real estate guides — not just brokers, but local experts.
+                    </p>
 
+                    <p className="mb-4">
+                        We’re building a system where you never need to pay a middleman or get stuck with outdated property data again. You’ll always have a verified listing, a transparent process, and a local advisor who’s just a call away.
+                    </p>
 
-                        </p>
-
-                    </div>
-
-
-
-
-                    <div>
-
-                        {[
-                            "A dedicated local expert for your specific pincode",
-                            "Zero-brokerage model — no hidden charges",
-                            "Verified, updated listings only",
-                            "Support for home loans, legal, and registration",
-                            "Complete CRM tracking, status updates, and after-sale support",
-                            "Assistance with resale, rental, lease, and PG services",
-                            "After-sale support and on-call guidance",
-                            "A brand that’s built on transparency and long-term trust",
-                        ].map((value, idx) => (
-                            <div key={idx} className="mb-2 flex items-start gap-2">
-                                <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1" />
-                                <p className="font-medium">{value}</p>
-                            </div>
-                        ))}
-                    </div>
+                    {[
+                        "A dedicated local expert for your specific pincode",
+                        "Zero-brokerage model — no hidden charges",
+                        "Verified, updated listings only",
+                        "Support for home loans, legal, and registration",
+                        "Complete CRM tracking, status updates, and after-sale support",
+                        "Assistance with resale, rental, lease, and PG services",
+                        "After-sale support and on-call guidance",
+                        "A brand that’s built on transparency and long-term trust",
+                    ].map((value, idx) => (
+                        <div key={idx} className="mb-2 flex items-start gap-2">
+                            <CheckCircleIcon className="h-5 w-5 text-green-500 mt-1" />
+                            <p className="font-medium">{value}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
-             <HomeDetiles5/>
+
+            {/* Custom Section at Bottom */}
+            <HomeDetiles5 />
         </>
     );
 };
