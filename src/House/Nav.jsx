@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
-import HomeBackground from './HomeBackground';
+
 
 const Nav = () => {
-  const [Menus, setMenus] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Scroll Effect
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -14,6 +16,11 @@ const Nav = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : 'auto';
+  }, [menuOpen]);
 
   return (
     <>
@@ -29,16 +36,47 @@ const Nav = () => {
           <img src={Logo} alt="Logo" className="w-32 h-auto p-2" />
         </h3>
 
-        {/* Desktop Navigation (Only Home) */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex gap-4 font-bold">
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? 'text-blue-500 underline' : ''
+                }
+              >
+                Home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive ? 'text-blue-500 underline' : ''
+                }
+              >
+                About
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? 'text-blue-500 underline' : ''
+                }
+              >
+                Contact
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
         {/* Mobile Toggle */}
         <button
+          aria-label="Toggle Menu"
           className="md:hidden block"
-          onClick={() => setMenus(prev => !prev)}
+          onClick={() => setMenuOpen(prev => !prev)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="size-6">
             <path
@@ -52,26 +90,59 @@ const Nav = () => {
         {/* Mobile Nav */}
         <div
           className={`fixed top-0 left-0 w-full h-screen bg-white text-black shadow-2xl transform transition-transform duration-300 md:hidden z-40 ${
-            Menus ? 'translate-x-0' : '-translate-x-full'
+            menuOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
           {/* Close Button */}
           <button
-            onClick={() => setMenus(false)}
+            onClick={() => setMenuOpen(false)}
             className="absolute top-4 right-4 text-3xl font-bold"
+            aria-label="Close Menu"
           >
             &times;
           </button>
 
           <nav className="flex flex-col items-center justify-center p-6 h-full">
             <ul className="flex flex-col gap-6 font-bold text-lg text-center">
+              <li>
+                <NavLink
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    isActive ? 'text-blue-500 underline' : ''
+                  }
+                >
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/about"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    isActive ? 'text-blue-500 underline' : ''
+                  }
+                >
+                  About
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/contact"
+                  onClick={() => setMenuOpen(false)}
+                  className={({ isActive }) =>
+                    isActive ? 'text-blue-500 underline' : ''
+                  }
+                >
+                  Contact
+                </NavLink>
+              </li>
             </ul>
           </nav>
         </div>
       </div>
 
-      {/* Home Background Component */}
-      <HomeBackground />
+     
     </>
   );
 };
