@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../assets/Logo.jpg';
 
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { Share2 } from 'lucide-react';
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showIcons, setShowIcons] = useState(false);
 
   // Scroll Effect
   useEffect(() => {
@@ -75,6 +78,7 @@ const Nav = () => {
         {/* Mobile Toggle */}
         <button
           aria-label="Toggle Menu"
+          aria-expanded={menuOpen ? 'true' : 'false'}
           className="md:hidden block"
           onClick={() => setMenuOpen(prev => !prev)}
         >
@@ -142,7 +146,33 @@ const Nav = () => {
         </div>
       </div>
 
-     
+      {/* Fixed Share Button */}
+      <div className="fixed bottom-8 right-8">
+  <button
+    onClick={() => setShowIcons(!showIcons)}
+    className="flex items-center gap-2 bg-white text-black px-4 py-2 rounded-full shadow-lg hover:bg-gray-200 transition"
+  >
+    <Share2 size={20} />
+  </button>
+
+        {/* Social Icons - Reveal on Toggle */}
+        {showIcons && (
+  <div className="top-12 flex flex-col items-center gap-3 bg-white text-black px-4 py-3 rounded-xl shadow-md">
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+      <FaFacebook size={30} color="#1877F2" /> {/* Facebook Blue */}
+    </a>
+    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+      <FaTwitter size={30} color="#1DA1F2" /> {/* Twitter Blue */}
+    </a>
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+      <FaInstagram size={30} color="#E1306C" /> {/* Instagram Pink */}
+    </a>
+    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+      <FaYoutube size={30} color="#FF0000" /> {/* YouTube Red */}
+    </a>
+  </div>
+)}
+</div>
     </>
   );
 };
