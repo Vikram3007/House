@@ -12,7 +12,7 @@ const HomeDetiles5 = () => {
    
 
       {/* Footer Section */}
-      <footer className="bg-gray-900 text-white mt-auto pt-30">
+      <footer className="bg-gray-900 text-white mt-auto pt-30 ">
 
         <img src="/Logo.jpg" alt="Boblick Logo" className="h-15 p-2 mb-10 w-auto" />
         <div className="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
